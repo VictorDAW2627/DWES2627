@@ -4,7 +4,8 @@ Crea una carpeta llamada ejercicios1 en tu carpeta de documentos de XAMPP y subi
 github. En esta carpeta guardarás este ejercicio y los siguientes, ya que serán muchos y
 así evitamos llenar la carpeta de documentos de demasiadas subcarpetas con ejercicios
 cortos.
-Para este ejercicio, crea un documento en esta carpeta llamado info_basica.php, similar al del ejemplo anterior, pero mostrando tu nombre y tu año de nacimiento usando variables. Es decir, crearás dos variables para almacenar estos dos datos, y los
+
+Para este ejercicio, crea un documento en esta carpeta llamado info_basica.php, similar al del ejemplo anterior, pero mostrando tu nombre y tu año de nacimiento usando variables. Es decir, crearás dos variables para almacenar estos dos datos, y los 
 mostrarás en una frase que diga “Me llamo XXXX y nací en el año YYYY”.
 Prueba la página en un navegador y echa un vistazo al código fuente, intentando detectar qué contenidos HTML se han generado desde PHP.
 
@@ -13,8 +14,7 @@ Prueba la página en un navegador y echa un vistazo al código fuente, intentand
 ## Ejercicio 2: 
 Crea una página en la carpeta de ejercicios llamada area_circulo.php. En
 ella, crea una variable $radio y ponle el valor 3.5. Según esa variable, calcula en otra
-variable el área del círculo (PI * 𝑟𝑎𝑑𝑖𝑜2
-), deberás definir la constante PI, y muestra por
+variable el área del círculo (PI * 𝑟𝑎𝑑𝑖𝑜2), deberás definir la constante PI, y muestra por
 pantalla el texto “El área del círculo es XX.XX”, donde XX.XX será el resultado de calcular el área.
 
 ### Resultado:
@@ -46,6 +46,7 @@ en una página y probándolo en un navegador.
 ```
 
 ### Resultado:
+Prediccion: 12, FALSE, FALSE, TRUE, FALSE, 7, 19
 
 ## Ejercicio 4.1:
 Crea una página en la carpeta de ejercicios llamada curriculum.php donde, utilizando
