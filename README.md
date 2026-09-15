@@ -19,6 +19,8 @@ pantalla el texto “El área del círculo es XX.XX”, donde XX.XX será el res
 Intenta predecir qué resultado va a sacar por pantalla cada instrucción echo
 de este código PHP. Luego podrás comprobar si estabas en lo cierto poniendo el código
 en una página y probándolo en un navegador.
+
+```
 <?php
     $num1 = 3;
     $num2 = 5;
@@ -37,6 +39,7 @@ en una página y probándolo en un navegador.
     $num3 += $num1;
     echo $num3;
 ?>
+```
 
 ## Ejercicio 4.1:
 Crea una página en la carpeta de ejercicios llamada curriculum.php donde, utilizando
