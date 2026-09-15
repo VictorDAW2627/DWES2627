@@ -8,6 +8,8 @@ Para este ejercicio, crea un documento en esta carpeta llamado info_basica.php, 
 mostrarás en una frase que diga “Me llamo XXXX y nací en el año YYYY”.
 Prueba la página en un navegador y echa un vistazo al código fuente, intentando detectar qué contenidos HTML se han generado desde PHP.
 
+### Resultado
+
 ## Ejercicio 2: 
 Crea una página en la carpeta de ejercicios llamada area_circulo.php. En
 ella, crea una variable $radio y ponle el valor 3.5. Según esa variable, calcula en otra
