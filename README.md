@@ -48,6 +48,8 @@ en una página y probándolo en un navegador.
 ### Resultado:
 Prediccion: 12, FALSE, FALSE, TRUE, FALSE, 7, 19
 
+
+
 ## Ejercicio 4.1:
 Crea una página en la carpeta de ejercicios llamada curriculum.php donde, utilizando
 variables variables, muestres parte de tu currículum (por ejemplo, un párrafo con tus
