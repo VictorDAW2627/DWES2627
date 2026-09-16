@@ -1,7 +1,7 @@
 <?php
 
-    $numeros[];   
-    $repetido;
+    $numeros[] = rand(0, 99);   
+    $repetido = false;
 
     for ($i=0; $i <50 ; $i++) {
         $repetido = false;
