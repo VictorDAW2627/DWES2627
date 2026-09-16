@@ -1,27 +1,27 @@
 <?php
 
-    $numeros[] = rand(0, 99);   
-    $repetido = false;
+    $numeros[0] = rand(0, 99);   
+    $repetido = FALSE;
 
-    for ($i=0; $i <49 ; $i++) {
-        $repetido = false;
+    for ($i=1; $i <50 ; $i++) {
+        $repetido = FALSE;
 
         $random = rand(0, 99);
 
         for ($j=0; $j < count($numeros); $j++) { 
             if ($numeros[j]==$random) {
                 $i--;
-                $repetido = true;
+                $repetido = TRUE;
             }
         }
 
-        if (!$repetido) {
-            $numeros[i] = $random;
+        if ($repetido==FALSE) {
+            $numeros[$i] = $random;
         }
     }
 
-    for ($i=0; $i < count($numeros); $i++) { 
-        echo $numeros[i].",";
+    for ($k=0; $k < count($numeros); $++) { 
+        echo $numeros[$i].",";
     }
 
 ?>
