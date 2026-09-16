@@ -16,7 +16,7 @@
         }
 
         if (!$repetido) {
-            $numeros[i] = $random
+            $numeros[i] = $random;
         }
     }
 
