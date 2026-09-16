@@ -97,7 +97,7 @@ Este otro va del 10 al 0:
 
 ##  Ejercicios con arrays
 
-## 8.0.1 Array1.php
+## 8.1 Array1.php
 Rellena un array con 50 números aleatorios comprendidos entre el 0 y el 99, y luego muéstralo en una
 lista desordenada. Para crear un número aleatorio, utiliza la función rand(inicio, fin) => $num = rand
 (0, 99)
@@ -110,7 +110,7 @@ lista desordenada. Para crear un número aleatorio, utiliza la función rand(ini
 
 ### Resultado:
 
-## 8.0.2 arrayAsociativo.php
+## 8.2 arrayAsociativo.php
 Rellena un array de 100 elementos de manera aleatoria con valores M o F (por ejemplo [“M”, “M”, “F”,
 “M”, …]). Una vez completado, vuelve a recorrerlo y calcula cuantos elementos hay de cada uno de los 
 valores almacenando el resultado en un array asociativo [‘M’ => 44, ‘F’ => 66] (no utilices variables
@@ -118,7 +118,7 @@ para contar las M o las F). Finalmente, muestra el resultado por pantalla
 
 ### Resultado:
 
-## 8.0.3 Personas.php
+## 8.3 Personas.php
 Mediante un array bidimensional, almacena el nombre, altura y email de 5 personas. Para ello, crea
 un array de personas, siendo cada persona un array asociativo: [ [‘nombre’=>‘Aitor’, ‘altura’=>182,
 ‘email’=>‘aitor@correo.com’],[…],… ] Posteriormente, recorre el array y muéstralo en una tabla
@@ -126,7 +126,7 @@ HTML.
 
 ### Resultado:
 
-## 8.0.4 Garaje.php
+## 8.4 Garaje.php
 Crea una página llamada coches.php. Define dentro un array bidimensional mixto donde:
 La primera dimensión sea asociativa. Aquí pondremos matrículas de coches. La segunda dimensión
 será numérica. En cada casilla guardaremos la marca, modelo y número de puertas del coche en
@@ -134,7 +134,7 @@ cuestión. Por ejemplo, el coche con matrícula “111BCD” puede ser un “For
 
 ### Resultado:
 
-## 8.0.5 arrayBidimensional.php
+## 8.5 arrayBidimensional.php
 Rellena un array bidimensional de 6 filas por 9 columnas con números aleatorios comprendidos entre
 100 y 999 (ambos incluidos). Todos los números deben ser distintos, es decir, no se puede repetir
 ninguno. Muestra a continuación por pantalla el contenido del array de tal forma que:
