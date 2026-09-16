@@ -3,7 +3,7 @@
     $numeros[] = rand(0, 99);   
     $repetido = false;
 
-    for ($i=0; $i <50 ; $i++) {
+    for ($i=0; $i <49 ; $i++) {
         $repetido = false;
 
         $random = rand(0, 99);
