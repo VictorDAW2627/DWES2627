@@ -11,11 +11,14 @@ $personas = array(
 echo "<table>";
 for ($i=0; $i < count($personas); $i++) { 
     echo "<tr>";
-    for ($j=0; $j < count($personas[$i]); $j++) { 
-        echo "<td>".$personas[$i][$j]."</td>";
-    }
+    //for ($j=0; $j < count($personas[$i]); $j++) { 
+        echo "<td>".$personas[$i]['nombre']."</td>";
+        echo "<td>".$personas[$i]['altura']."</td>";
+        echo "<td>".$personas[$i]['email']."</td>";
+    //} --> Preguntar a Pepe por $personas[x][x]
     echo "</tr>";
 }
 echo "</table>";
+
 
 ?>
