@@ -143,5 +143,3 @@ ninguno. Muestra a continuación por pantalla el contenido del array de tal form
 • El resto de números deben aparecer en negro.
 
 ### Resultado:
-
-# Tema 2
