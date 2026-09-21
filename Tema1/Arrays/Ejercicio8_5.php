@@ -24,19 +24,11 @@
         for ($j=0; $j < count($numeros[$i]); $j++) { 
             if ($i == 0 and $j == 0) {
                 $mayor = array($j=>$numeros[$i][$j]);
+                $menor = array($i=>$numeros[$i][$j]);
             } else {
                 if ($numeros[$i][$j]>$mayor[array_key_first($mayor)]) {
                     $mayor = array($j=>$numeros[$i][$j]);
                 }
-            }
-        }
-    }
-
-    for ($i=0; $i < count($numeros); $i++) { 
-        for ($j=0; $j < count($numeros[$i]); $j++) { 
-            if ($i == 0 and $j == 0) {
-                $menor = array($i=>$numeros[$i][$j]);
-            } else {
                 if ($numeros[$i][$j]<$menor[array_key_first($menor)]) {
                     $menor = array($i=>$numeros[$i][$j]);
                 }
