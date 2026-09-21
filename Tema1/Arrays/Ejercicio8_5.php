@@ -3,31 +3,21 @@
     $numeros[0][0] = rand(100, 999);
 
     for ($i=0; $i < 6; $i++) {
-
         for ($j=0; $j < 9; $j++) { 
             $repetido = FALSE;
-
             $random = rand(100, 999);
-
             for ($k=0; $k < count($numeros); $k++) { 
                 for ($l=0; $l < count($numeros[$k]); $l++) { 
                     if ($random==$numeros[$k][$l]) {
                         $repetido = TRUE;
                         $j--;
                     }
-
                 }
-
             }
-
             if ($repetido==FALSE) {
                 $numeros[$i][$j] = $random;
             }
-
-        }
-
-        
-         
+        }         
     }
 
     for ($i=0; $i < count($numeros); $i++) { 
