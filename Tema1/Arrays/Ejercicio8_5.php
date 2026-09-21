@@ -54,11 +54,22 @@
         }
     }
 
-    echo "<table style='border: 1px solid black;'>";
-    for ($i=0; $i < count($numeros); $i++) {        
-        echo "<tr>";
+    echo "<table style='border: 1px solid black; color: white; border-collapse: collapse;'>";
+    for ($i=0; $i < count($numeros); $i++) {
+        if ($i == array_key_first($menor)) {
+            echo "<tr style = 'background-color: green;'>";
+        } else {
+            echo "<tr style = 'background-color: black;'>";
+        }  
             for ($j=0; $j < count($numeros[$i]); $j++) { 
-                echo "<td>".$numeros[$i][$j]."</td>";                             
+                if ($i == array_key_first($menor) and $j == array_key_first($mayor)) {
+                    echo "<td style='background-color: turquoise; color: black;'>".$numeros[$i][$j]."</td>";
+                } elseif ($j == array_key_first($mayor)) {
+                    echo "<td style='background-color: blue;'>".$numeros[$i][$j]."</td>";
+                } else {
+                    echo "<td>".$numeros[$i][$j]."</td>";
+                }
+                                             
             }
         echo "</tr>";
     }
