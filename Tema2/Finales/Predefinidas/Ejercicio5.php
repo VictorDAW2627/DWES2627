@@ -1,15 +1,16 @@
 <?php
 
-$frase = "Las letras pares son minusculas";
+$frase = "No me gustan los numeros pares";
+$impares="";
 
 echo $frase."<br><br>";
 
 for ($i=0; $i < strlen($frase); $i++) { 
     if ($i%2==0) {
-        $frase[$i] = strtoupper($frase[$i]);
+        $impares .= $frase[$i];
     }
 }
 
-echo $frase;
+echo $impares;
 
 ?>
