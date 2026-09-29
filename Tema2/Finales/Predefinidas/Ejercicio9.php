@@ -1,6 +1,6 @@
 <?php
 
-$cadena = "Las sales";
+$cadena = "Ligar es ser agil";
 
 echo "La palabra es: ".$cadena;
 
