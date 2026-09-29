@@ -7,7 +7,7 @@ echo $frase."<br><br>";
 echo cadenaCani($frase);
 
 function cadenaCani(string $cadena) : string {
-    //Preguntar a Pepe por caracteres con tilde
+
     $esMayuscula = true;
 
     for ($i=0; $i < strlen($cadena); $i++) { 
