@@ -2,18 +2,13 @@
 
 ## Ejercicio 1:
 
-Crea una página llamada contador.php. Crea una función llamada cuenta($a, $b
-) que reciba dos parámetros y vaya contando de un número al otro, separando los
-números por comas. Después, pruébala en el código PHP haciendo que cuente del 10
-al 20.
+Crea una página llamada contador.php. Crea una función llamada cuenta($a, $b) que reciba dos parámetros y vaya contando de un número al otro, separando los números por comas. Después, pruébala en el código PHP haciendo que cuente del 10 al 20.
 
 ### Resultado:
 
 ## Ejercicio 2:
 
-Crea una página llamada intercambia.php. Añade dentro una función llamada inter-
-cambia que reciba 2 parámetros numéricos por referencia, y lo que haga sea intercam-
-biar sus valores. Es decir, si recibe el parámetro $a y el valor de $b , y $b tome el valor de $a.
+Crea una página llamada intercambia.php. Añade dentro una función llamada intercambia que reciba 2 parámetros numéricos por referencia, y lo que haga sea intercambiar sus valores. Es decir, si recibe el parámetro $a y el valor de $b , y $b tome el valor de $a.
 
 ### Resultado:
 
@@ -96,18 +91,14 @@ igual de izquierda a derecha que de derecha a izquierda, por ejemplo, "ligar es 
 
 ## Ejercicio 10:
 
-Crea un programa llamado CasasRuralesTelefonos.php que cargue los datos de este
-archivo CSV de casas rurales de la provincia de Castellón.
-Queremos quedarnos con el id, localidad, nombre y telefono de las casas rurales que tengan un
-teléfono definido, descartando el resto.
-El programa debe mostrar por pantalla el listado final procesado, y cuántas casas rurales se
-han descartado por tener datos nulos.
+Crea un programa llamado CasasRuralesTelefonos.php que cargue los datos de este archivo CSV de casas rurales de la provincia de Castellón.
+Queremos quedarnos con el id, localidad, nombre y telefono de las casas rurales que tengan un teléfono definido, descartando el resto.
+El programa debe mostrar por pantalla el listado final procesado, y cuántas casas rurales se han descartado por tener datos nulos.
 
 ### Resultado:
 
 ## Ejercicio 11:
 
-Con el fichero plantillas.csv muestra en un tabla HTML la plantilla del Atlético de Madrid
-ordenada por dorsal.
+Con el fichero plantillas.csv muestra en un tabla HTML la plantilla del Atlético de Madrid ordenada por dorsal.
 
 ### Resultado:
