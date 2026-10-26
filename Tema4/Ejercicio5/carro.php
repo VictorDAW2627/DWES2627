@@ -1,11 +1,13 @@
 <?php 
-$_SESSION = [];
+/*$_SESSION = [];
 session_start();
-session_destroy();
+session_destroy();*/
 
 session_start();
 
-$_SESSION["carro"] = array("total"=>0, "articulos"=>[]);
+if (!isset($_SESSION["carro"])) {
+    $_SESSION["carro"] = array("total"=>0, "articulos"=>[]);
+}
 
 $lista = "";
 
@@ -19,22 +21,24 @@ array("id" => 4, "nombre" => "Pelota de baloncesto Molten", "precio" => 20)
 if (isset($_REQUEST["id"]) and is_numeric($_REQUEST["id"])) {
     for ($i=0; $i < count($articulos); $i++) { 
         if ($articulos[$i]["id"]==$_REQUEST["id"]) {
-            $_SESSION["carro"]["articulos"]=[("articulo".count($_SESSION["carro"]["articulos"])+1)=>array($articulos[$i]["nombre"], $articulos[$i]["precio"])];
+            $_SESSION["carro"]["articulos"]["articulo".count($_SESSION["carro"]["articulos"])+1]=array($articulos[$i]["nombre"], $articulos[$i]["precio"]);
         }
     }
     header("location: carro.php");
-} else if (isset($_SESSION["carro"]["articulos"])and!empty(["carro"]["articulos"])) {
+} else if (isset($_SESSION["carro"]["articulos"])and!empty($_SESSION["carro"]["articulos"])) {
     $lista = creaLista($_SESSION["carro"]["articulos"]);
 }
 
 function creaLista(array $articulos) : string {
+    $total = 0;
     $lista = "<ul>";
     $ides = array_keys($articulos);
     foreach ($ides as $id) {
         $lista .= "<li>".$articulos[$id][0]." - ".$articulos[$id][1]."</li>";
-        $_SESSION["carro"]["total"]+= $articulos[$id][1];
+        $total += $articulos[$id][1];
     }
 
+    $_SESSION["carro"]["total"] = $total;
     $lista .= "</ul><br>Total:".$_SESSION["carro"]["total"];
 
     return $lista;
