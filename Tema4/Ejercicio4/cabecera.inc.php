@@ -1,4 +1,10 @@
-<?php 
+<?php
+    /*$_SESSION =[];
+    session_start();
+    session_destroy();*/
+
+    session_start();
+
     $enlaces = "";
     if (isset($_SESSION["loginusu"]) and !empty($_SESSION["loginusu"])) {
         $enlaces = "<a href='pag1.php'>Página 1</a><br><a href='pag2.php'>Página 2</a>";
