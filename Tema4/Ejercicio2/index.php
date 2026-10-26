@@ -18,9 +18,11 @@ if (isset($_COOKIE["nombreusu"]) and isset($_COOKIE["colorusu"])) {
     <title>Index</title>
     <meta charset="UTF-8">
 </head>
+<body>
+    
 <?php echo $mensaje ?>
 <a href="preferencias.php">Configure sus preferencias</a>
 
 </body>
 
-</html
+</html>
