@@ -3,6 +3,9 @@ namespace Clases\Ejercicio2;
 include_once("Player.php");
 include_once("Team.php");
 
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
+
 $plantillas = "plantillas.csv";
 
 if (file_exists($plantillas)) {
@@ -24,7 +27,7 @@ function rellenaEquipo($atletico): Team
         foreach ($campos as $campo) {
             switch ($campo) {
                 case 'Nombre':
-                    $nombre = $atletico[$i][$campo];
+                    $nombre = $atletico[$i][$campo]." ".$atletico[$i]["Apellidos"];
                     break;
                 case 'Fecha':
                     $cumpleaños = $atletico[$i][$campo];
@@ -57,10 +60,10 @@ function rellenaEquipo($atletico): Team
         }
         $jugador = new Player($nombre, $cumpleaños, $pais, $dorsal, $posicion, $partidos, $goles);
         $jugador->playMinutes($minutos);
-        for ($i=0; $i < $amarillas; $i++) { 
+        for ($j=0; $j < $amarillas; $j++) { 
             $jugador->addCard(0);
         }
-        for ($i=0; $i < $rojas; $i++) { 
+        for ($k=0; $k < $rojas; $k++) { 
             $jugador->addCard(1);
         }
         $equipo->signPlayer($jugador);

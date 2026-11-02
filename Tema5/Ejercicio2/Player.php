@@ -1,5 +1,6 @@
 <?php 
 namespace Clases\Ejercicio2;
+
 class Player{
     private $name;
     private $birthday;
@@ -25,8 +26,9 @@ class Player{
         $this->redCard=0;        
     }
     public function age(){
-        $cumpleaños = new DateTimeImmutable($this->birthday);
-        return $cumpleaños->format('Y')-date('Y');
+        $this->birthday=str_replace("/","-", $this->birthday);
+        $cumpleaños = new \DateTimeImmutable($this->birthday);
+        return date('Y')- $cumpleaños->format('Y');
     }
     public function score(){
         return $this->goals/$this->matches;

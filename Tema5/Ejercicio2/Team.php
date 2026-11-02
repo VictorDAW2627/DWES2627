@@ -26,14 +26,14 @@ class Team{
         array_push($this->players, $player);
     }
     public function render():string{
-        $detalles = "<p>Team: ".$this->name."<p><br>";
-        $detalles .= "<p>Matches: ".$this->matches."<p><br>";
-        $detalles .= "<p>Won: ".$this->won."<p><br>";
-        $detalles .= "<p>Lost: ".$this->lost."<p><br>";
-        $detalles .= "<p>Tie: ".$this->tie."<p><br>";
-        $detalles .= "<p>Score Goals: ".$this->scoreGoals."<p><br>";
-        $detalles .= "<p>Conceded Goals: ".$this->concededGoals."<p><br>";
-        $detalles .= "<p>Players: <p><br>";
+        $detalles = "<p>Team: ".$this->name."<p>";
+        $detalles .= "<p>Matches: ".$this->matches."<p>";
+        $detalles .= "<p>Won: ".$this->won."<p>";
+        $detalles .= "<p>Lost: ".$this->lost."<p>";
+        $detalles .= "<p>Tie: ".$this->tie."<p>";
+        $detalles .= "<p>Score Goals: ".$this->scoreGoals."<p>";
+        $detalles .= "<p>Conceded Goals: ".$this->concededGoals."<p>";
+        $detalles .= "<p>Players: <p>";
         $detalles.= "<table>";
         $detalles .= "<tr>";
         $detalles.="<td>Player</td>";
