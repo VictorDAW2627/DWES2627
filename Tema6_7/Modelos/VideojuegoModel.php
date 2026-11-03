@@ -22,7 +22,7 @@ class VideojuegoModel
     public function borrar($id){
         
     }
-    public function editar(){
+    public function editar($id){
         
     }
     public function obtenerTodos(){

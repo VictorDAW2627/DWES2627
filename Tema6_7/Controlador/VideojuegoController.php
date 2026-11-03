@@ -22,10 +22,10 @@ class VideojuegoController
     public function create(){
         
     }
-    public function delete(){
+    public function delete($id){
         
     }
-    public function edit(){
+    public function edit($id){
         
     }
 }

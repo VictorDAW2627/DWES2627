@@ -75,7 +75,7 @@
                 <input type="text" id="genero" name="genero" required>
             </div>
             <div class="campo">
-                <label for="precio">Precio €():</label>
+                <label for="precio">Precio (€):</label>
                 <input type="number" id="precio" name="precio" step="0.01" required>
             </div>
             <button type="submit">Guardar Videojuego</button>
@@ -100,16 +100,13 @@
                             $juego['id'] ?? ''
                         ); ?></td>
                         <td>
-                            <?php echo htmlspecialchars($juego['titulo']);
-                            ?>
+                            <?php echo htmlspecialchars($juego['titulo']);?>
                         </td>
                         <td>
-                            <?php echo htmlspecialchars($juego['genero']);
-                            ?>
+                            <?php echo htmlspecialchars($juego['genero']);?>
                         </td>
                         <td>
-                            <?php echo htmlspecialchars($juego['precio']);
-                            ?> €
+                            <?php echo htmlspecialchars($juego['precio']);?> €
                         </td>
                     </tr>
                 <?php endforeach; ?>
