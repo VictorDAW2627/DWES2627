@@ -19,6 +19,12 @@ class VideojuegoModel
             return false;
         }
     }
+    public function borrar($id){
+        
+    }
+    public function editar(){
+        
+    }
     public function obtenerTodos(){
         try {
             $sql = "SELECT * FROM videojuegos";
