@@ -6,9 +6,7 @@ require_once "../Tema6_7/Controlador/VideojuegoController.php";
 $controller = new VideojuegoController();
 $action = $_GET['action'] ?? 'index';
 $id = $_GET['id'] ?? null;
-if ($action == 'create') {
-    $controller->create();
-} elseif ($action == 'delete' && $id) {
+if ($action == 'delete' && $id) {
     $controller->delete($id);
 } elseif ($action == 'edit' && $id) {
     $controller->edit($id);

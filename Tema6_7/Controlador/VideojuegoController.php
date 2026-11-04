@@ -19,9 +19,6 @@ class VideojuegoController
         $videojuegos = $this->modelo->obtenerTodos();
         require_once "../Tema6_7/Vista/videojuego_view.php";
     } 
-    public function create(){
-        
-    }
     public function delete($id){
         
     }
