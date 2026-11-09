@@ -4,12 +4,14 @@ require_once "../Tema6_7/Modelos/VideojuegoModel.php";
 class VideojuegoController
 {
     private $modelo;
-    public function __construct(){
+    public function __construct()
+    {
         $this->modelo = new VideojuegoModel();
     }
-    public function index(){
+    public function index()
+    {
         $mensaje = "";
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'])){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
             $genero = $_POST['genero'];
             $precio = $_POST['precio'];
@@ -18,18 +20,58 @@ class VideojuegoController
         }
         $videojuegos = $this->modelo->obtenerTodos();
         require_once "../Tema6_7/Vista/videojuego_view.php";
-    } 
-    public function delete($id){
+    }
+    public function delete($id)
+    {
         $mensaje = "";
-        if (isset($id)){
+        if (isset($id)) {
             $exito = $this->modelo->borrar($id);
             $mensaje = $exito ? "¡Videojuego borrado con éxito!" : "Error al borrar el videojuego.";
         }
         $videojuegos = $this->modelo->obtenerTodos();
         require_once "../Tema6_7/Vista/videojuego_view.php";
     }
-    public function edit($id){
-        
+    public function edit($id)
+    {
+        $mensaje = "";
+        $videojuegos = $this->modelo->obtenerTodos();
+        $juego=[];
+        foreach ($videojuegos as $videojuego) {
+            if ($videojuego['id']==$id) {
+                $juego = $videojuego;
+            }
+        }
+
+        if (isset($_POST['nombre'])) {
+            $nombre = $_POST['nombre'];
+        } else {
+            $nombre = $juego['titulo'];
+        }
+
+        if (isset($_POST['genero'])) {
+            $genero = $_POST['genero'];
+        } else {
+            $genero = $juego['genero'];
+        }
+
+        if (isset($_POST['precio'])) {
+            $precio = $_POST['precio'];
+        } else {
+            $precio = $juego['precio'];
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($id)) {
+            $exito = $this->modelo->editar($id, $nombre, $genero, $precio);
+            $mensaje = $exito ? "¡Videojuego editado con éxito!" : "Error al editar el videojuego.";
+        }
+        $videojuegos = $this->modelo->obtenerTodos();
+        require_once "../Tema6_7/Vista/videojuego_view.php";
+    }
+
+    public function cambios($id)
+    {
+        $videojuegos = $this->modelo->obtenerTodos();
+        require_once "../Tema6_7/Vista/videojuego_edit_view.php";
     }
 }
 ?>

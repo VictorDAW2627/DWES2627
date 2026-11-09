@@ -17,24 +17,24 @@
     <!-- Formulario para añadir nuevos registros -->
     <div class="formulario">
         <h3>Editar Videojuego</h3>
-        <form action="index.php" method="POST">
+        <form action="index.php?action=edit&id=<?= $id ?>" method="POST">
             <div class="campo">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre">
             </div>
             <div class="campo">
                 <label for="genero">Género:</label>
-                <input type="text" id="genero" name="genero" required>
+                <input type="text" id="genero" name="genero">
             </div>
             <div class="campo">
                 <label for="precio">Precio (€):</label>
-                <input type="number" id="precio" name="precio" step="0.01" required>
+                <input type="number" id="precio" name="precio" step="0.01">
             </div>
             <button type="submit">Guardar cambios</button>
         </form>
     </div>
     <!-- Tabla que lista los videojuegos que nos mandó el controlador -->
-    <h2>Listado Actual</h2>
+    <h2>Videojuego seleccionado</h2>
     <?php if (!empty($videojuegos)): ?>
         <table>
             <thead>
@@ -43,33 +43,31 @@
                     <th>Nombre</th>
                     <th>Género</th>
                     <th>Precio</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($videojuegos as $juego): ?>
-                    <?php if ($id=$juego['id']): ?>
-                    <tr>
-                        <td>
-                            <?php echo htmlspecialchars($juego['id'] ?? ''); ?>
-                        </td>
-                        <td>
-                            <?php echo htmlspecialchars($juego['titulo']);?>
-                        </td>
-                        <td>
-                            <?php echo htmlspecialchars($juego['genero']);?>
-                        </td>
-                        <td>
-                            <?php echo htmlspecialchars($juego['precio']);?> €
-                        </td>
-                    </tr>
+                    <?php if ($id == $juego['id']): ?>
+                        <tr>
+                            <td>
+                                <?php echo htmlspecialchars($juego['id'] ?? ''); ?>
+                            </td>
+                            <td>
+                                <?php echo htmlspecialchars($juego['titulo']); ?>
+                            </td>
+                            <td>
+                                <?php echo htmlspecialchars($juego['genero']); ?>
+                            </td>
+                            <td>
+                                <?php echo htmlspecialchars($juego['precio']); ?> €
+                            </td>
+                        </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>
     <?php else: ?>
-        <p>No hay videojuegos registrados en el sistema.</p>
+        <p>No se ha encontrado ese videojuego.</p>
     <?php endif; ?>
 </body>
 

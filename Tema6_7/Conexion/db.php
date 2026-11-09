@@ -1,5 +1,6 @@
 <?php
-function obtenerConexion(){
+function obtenerConexion()
+{
     $host = "localhost";
     $nombreBD = "videojuegos";
     $usuario = "root";

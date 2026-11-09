@@ -28,8 +28,14 @@ class VideojuegoModel
             return false;
         }
     }
-    public function editar($id){
-        
+    public function editar($id, $nombre, $genero, $precio){
+        try {
+            $sql = "UPDATE videojuegos SET titulo = :titulo, genero = :genero, precio = :precio WHERE id = :id";
+            $stmt = $this->conexion->prepare($sql);
+            return $stmt->execute(['titulo' => $nombre, 'genero' => $genero, 'precio' => $precio, 'id' => $id]);
+        } catch (\PDOException $e) {
+            return false;
+        }
     }
     public function obtenerTodos(){
         try {

@@ -54,21 +54,21 @@
                             <?php echo htmlspecialchars($juego['id'] ?? ''); ?>
                         </td>
                         <td>
-                            <?php echo htmlspecialchars($juego['titulo']);?>
+                            <?php echo htmlspecialchars($juego['titulo']); ?>
                         </td>
                         <td>
-                            <?php echo htmlspecialchars($juego['genero']);?>
+                            <?php echo htmlspecialchars($juego['genero']); ?>
                         </td>
                         <td>
-                            <?php echo htmlspecialchars($juego['precio']);?> €
+                            <?php echo htmlspecialchars($juego['precio']); ?> €
                         </td>
                         <td>
-                            <a href="index.php?action=cambios&id=<?=$juego['id']?>">
+                            <a href="index.php?action=cambios&id=<?= $juego['id'] ?>">
                                 <img src="Vista/boton-editar.png" alt="Editar" width="20px" height="20px">
                             </a>
                         </td>
                         <td>
-                            <a href="index.php?action=delete&id=<?=$juego['id']?>">
+                            <a href="index.php?action=delete&id=<?= $juego['id'] ?>">
                                 <img src="Vista/contenedor-de-basura.png" alt="Borrar" width="20px" height="20px">
                             </a>
                         </td>
