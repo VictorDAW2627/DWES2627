@@ -60,6 +60,16 @@
                         <td>
                             <?php echo htmlspecialchars($juego['precio']);?> €
                         </td>
+                        <td>
+                            <a href="index.php?action=edit&id=<?=$juego['id']?>">
+                                <img src="boton-editar.png" alt="Editar">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="index.php?action=delete&id=<?=$juego['id']?>">
+                                <img src="contenedor-de-basura.png" alt="Borrar">
+                            </a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
