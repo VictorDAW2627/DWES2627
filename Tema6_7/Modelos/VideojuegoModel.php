@@ -32,14 +32,24 @@ class VideojuegoModel
         try {
             $sql = "UPDATE videojuegos SET titulo = :titulo, genero = :genero, precio = :precio WHERE id = :id";
             $stmt = $this->conexion->prepare($sql);
-            return $stmt->execute(['titulo' => $nombre, 'genero' => $genero, 'precio' => $precio, 'id' => $id]);
-        } catch (\PDOException $e) {
+            return $stmt->execute(['titulo' => $nombre, 'genero' => $genero, 'precio' => $precio, 'id' => $id]);            
+        } catch (PDOException $e) {
             return false;
         }
     }
     public function obtenerTodos(){
         try {
             $sql = "SELECT * FROM videojuegos";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+    public function obtenerPorID($id){
+        try {
+            $sql = "SELECT * FROM videojuegos WHERE id = $id";
             $stmt = $this->conexion->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);

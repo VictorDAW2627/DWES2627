@@ -35,29 +35,27 @@ class VideojuegoController
     {
         $mensaje = "";
         $videojuegos = $this->modelo->obtenerTodos();
-        $juego=[];
-        foreach ($videojuegos as $videojuego) {
-            if ($videojuego['id']==$id) {
-                $juego = $videojuego;
-            }
-        }
+        $juego = $this->modelo->obtenerPorID($id);
 
         if (isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
         } else {
-            $nombre = $juego['titulo'];
+            $nombre = $juego[0]['titulo'];
+            echo $nombre;
         }
 
         if (isset($_POST['genero'])) {
             $genero = $_POST['genero'];
         } else {
-            $genero = $juego['genero'];
+            $genero = $juego[0]['genero'];
+            echo $genero;
         }
 
         if (isset($_POST['precio'])) {
             $precio = $_POST['precio'];
-        } else {
-            $precio = $juego['precio'];
+        } else {            
+            $precio = $juego[0]['precio'];
+            echo $precio;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($id)) {
