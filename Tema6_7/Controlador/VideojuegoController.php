@@ -20,7 +20,13 @@ class VideojuegoController
         require_once "../Tema6_7/Vista/videojuego_view.php";
     } 
     public function delete($id){
-        
+        $mensaje = "";
+        if (isset($id)){
+            $exito = $this->modelo->borrar($id);
+            $mensaje = $exito ? "¡Videojuego borrado con éxito!" : "Error al borrar el videojuego.";
+        }
+        $videojuegos = $this->modelo->obtenerTodos();
+        require_once "../Tema6_7/Vista/videojuego_view.php";
     }
     public function edit($id){
         

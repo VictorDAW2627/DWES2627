@@ -20,7 +20,13 @@ class VideojuegoModel
         }
     }
     public function borrar($id){
-        
+        try {
+            $sql = "DELETE FROM videojuegos WHERE id=:id";
+            $stmt = $this->conexion->prepare($sql);;
+            return $stmt->execute(['id' => $id]);
+        } catch (PDOException $e) {
+            return false;
+        }
     }
     public function editar($id){
         

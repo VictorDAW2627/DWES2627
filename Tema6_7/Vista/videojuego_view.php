@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Catálogo de Videojuegos (MVC)</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Vista/style.css">
 </head>
 
 <body>
@@ -43,14 +43,16 @@
                     <th>Nombre</th>
                     <th>Género</th>
                     <th>Precio</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($videojuegos as $juego): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars(
-                            $juego['id'] ?? ''
-                        ); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($juego['id'] ?? ''); ?>
+                        </td>
                         <td>
                             <?php echo htmlspecialchars($juego['titulo']);?>
                         </td>
@@ -62,12 +64,12 @@
                         </td>
                         <td>
                             <a href="index.php?action=edit&id=<?=$juego['id']?>">
-                                <img src="boton-editar.png" alt="Editar">
+                                <img src="Vista/boton-editar.png" alt="Editar" width="20px" height="20px">
                             </a>
                         </td>
                         <td>
                             <a href="index.php?action=delete&id=<?=$juego['id']?>">
-                                <img src="contenedor-de-basura.png" alt="Borrar">
+                                <img src="Vista/contenedor-de-basura.png" alt="Borrar" width="20px" height="20px">
                             </a>
                         </td>
                     </tr>
