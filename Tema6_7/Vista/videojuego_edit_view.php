@@ -30,7 +30,7 @@
                 <label for="precio">Precio (€):</label>
                 <input type="number" id="precio" name="precio" step="0.01" required>
             </div>
-            <button type="submit">Guardar Videojuego</button>
+            <button type="submit">Guardar cambios</button>
         </form>
     </div>
     <!-- Tabla que lista los videojuegos que nos mandó el controlador -->

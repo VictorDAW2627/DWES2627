@@ -8,9 +8,11 @@ $action = $_GET['action'] ?? 'index';
 $id = $_GET['id'] ?? null;
 if ($action == 'delete' && $id) {
     $controller->delete($id);
+} elseif ($action == 'cambios' && $id) {
+    header("location: Vista/videojuego_edit_view.php");
 } elseif ($action == 'edit' && $id) {
     $controller->edit($id);
-} else {
+}else {
     $controller->index();
 }
 ?>

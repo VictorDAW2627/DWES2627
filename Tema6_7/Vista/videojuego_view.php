@@ -63,7 +63,7 @@
                             <?php echo htmlspecialchars($juego['precio']);?> €
                         </td>
                         <td>
-                            <a href="index.php?action=edit&id=<?=$juego['id']?>">
+                            <a href="index.php?action=cambios&id=<?=$juego['id']?>">
                                 <img src="Vista/boton-editar.png" alt="Editar" width="20px" height="20px">
                             </a>
                         </td>
