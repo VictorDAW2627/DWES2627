@@ -34,10 +34,9 @@ class VideojuegoController
     public function edit($id)
     {
         $mensaje = "";
-        $videojuegos = $this->modelo->obtenerTodos();
         $juego = $this->modelo->obtenerPorID($id);
 
-        if (isset($_POST['nombre'])) {
+        /*if (isset($_POST['nombre'])) {
             $nombre = $_POST['nombre'];
         } else {
             $nombre = $juego[0]['titulo'];
@@ -56,9 +55,12 @@ class VideojuegoController
         } else {            
             $precio = $juego[0]['precio'];
             echo $precio;
-        }
+        }*/
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($id)) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nombre = (isset($_POST['nombre']) && trim($_POST['nombre'])!=='') ? $_POST['nombre'] : $juego[0]['titulo'];
+            $genero = (isset($_POST['genero']) && trim($_POST['genero'])!=='') ? $_POST['genero'] : $juego[0]['genero'];
+            $precio = (isset($_POST['precio']) && $_POST['precio']!=='') ? $_POST['precio'] : $juego[0]['precio'];
             $exito = $this->modelo->editar($id, $nombre, $genero, $precio);
             $mensaje = $exito ? "¡Videojuego editado con éxito!" : "Error al editar el videojuego.";
         }
