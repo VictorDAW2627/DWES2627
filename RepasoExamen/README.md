@@ -1,5 +1,7 @@
 # Repaso
+
 ## Ejercicio 1:
+
 Una sala de cine tiene 8 filas con 12 butacas cada una. 
 Define como constantes estos tamaños y el número de butacas ocupadas (40). 
 Guarda el estado de la sala en un array bidimensional donde cada butaca vale 0 (libre) o 1 (ocupada).
@@ -26,6 +28,7 @@ Fila con más butacas libres: 3 (9 libres)
 Columna con más butacas ocupadas: 7 (6 ocupadas) 
 
 ## Ejercicio 2:
+
 Una academia guarda las inscripciones a un curso en inscripciones.txt, con una inscripción por línea y los campos separados por ;:
 
 nombre;dd/mm/aaaa;teléfono;email
@@ -99,3 +102,61 @@ Líneas leídas: 19
 Inscripciones válidas: 11
 Líneas descartadas: 8
 ```
+
+## Ejercicio 3:
+
+El departamento de informática de un instituto quiere registrar incidencias, cada una con una captura de pantalla. Crea la carpeta capturas/ (el servidor web necesita permiso de escritura en ella y en la carpeta de los scripts, donde se creará incidencias.txt) y estos ficheros:
+
+nuevaIncidencia.php y nuevaIncidencia.view.php. La lógica va en el primero, que al final hace include de la vista. Recuerda que los header() tienen que ejecutarse antes de enviar cualquier salida. El formulario se envía a su propia página, por POST y con multipart/form-data, y tiene:
+
+-Título (texto).
+
+-Prioridad (radio): baja, media o alta.
+
+-Módulos afectados (checkboxes): login, pagos, informes y perfil.
+
+-Captura (fichero), sin el campo oculto MAX_FILE_SIZE: el límite lo compruebas tú con size.
+
+Al recibirlo, valida en el servidor (aunque el formulario ya limite las opciones, no te fíes del navegador) y muestra todos los errores en una lista, con estos mensajes exactos:
+
+Si...	                  Mensaje
+El título está vacío =>	El título es obligatorio
+El título tiene menos de 5 o más de 50 caracteres => El título debe tener entre 5 y 50 caracteres
+El título contiene ; (es el separador del fichero) => El título no puede contener ;
+La prioridad no se ha elegido o no es una de las tres =>	Elige una prioridad
+Ningún módulo marcado, o alguno no es de la lista =>	Marca al menos un módulo
+La captura no llega o la subida falla (error distinto de 0) =>	Adjunta una captura
+La captura no es JPEG ni PNG (type) =>	La captura debe ser JPEG o PNG
+La captura pesa más de 200000 bytes (size) =>	La captura no puede superar los 200 KB
+
+Del título solo se informa del primer fallo, y si la captura no llega no se comprueban ni su tipo ni su tamaño. Si hay errores, vuelve a mostrar el formulario con lo que el usuario había escrito y marcado (título, prioridad y módulos). Si todo es correcto:
+
+-Guarda la captura en capturas/ como captura_<id>.png o captura_<id>.jpg, según su tipo. Nunca uses el nombre original. El <id> es el número de la incidencia (1 la primera, 2 la siguiente...) y sale de contar las líneas de incidencias.txt (1 si no existe).
+
+-Añade a incidencias.txt una línea con el formato id;dd/mm/aaaa hh:mm:ss;ip;título;prioridad;módulos separados por comas;fichero de la captura, por ejemplo: 1;16/11/2026 10:32:05;127.0.0.1;Falla el login;alta;login,pagos;captura_1.png
+
+-Muestra una confirmación con los datos y la captura y, a los 5 segundos, redirige al formulario vacío.
+
+El título lo ha escrito el usuario: cada vez que lo escribas en el HTML, hazlo con htmlspecialchars.
+
+listadoIncidencias.php (un solo fichero: la lógica arriba y el HTML debajo):
+
+-Una tabla con las incidencias, en el orden del fichero: id, fecha, título, prioridad, módulos y la captura como imagen de 100 px de ancho. Si el fichero no existe o está vacío, no hay tabla ni contador: solo el texto No hay incidencias.
+
+-Sobre la tabla, los enlaces Todas | Baja | Media | Alta, que filtran con ?prioridad=baja, ?prioridad=media y ?prioridad=alta, y el texto Mostrando X de Y incidencias (X tras filtrar, Y el total). Si prioridad llega con cualquier otro valor, redirige a listadoIncidencias.php.
+
+-Enlaces entre el listado y el formulario.
+
+Pruebas que debe pasar
+
+-Enviar el formulario vacío: 4 errores (título, prioridad, módulos y captura).
+
+-Un .pdf o .gif: error de tipo. Una imagen de más de 200 KB: error de tamaño (si supera el upload_max_filesize de tu php.ini, PHP la rechaza antes y verás el error de subida). En todos los casos, el título, la prioridad y los módulos siguen rellenos.
+
+-Un envío correcto: confirmación y, a los 5 segundos, formulario vacío; la incidencia aparece en el listado.
+
+-listadoIncidencias.php?prioridad=alta muestra solo las altas, y ?prioridad=x te devuelve al listado completo.
+
+## Ejercicio 4:
+
+## Ejercicio 5:
