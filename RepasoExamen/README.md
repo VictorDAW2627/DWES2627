@@ -159,4 +159,60 @@ Pruebas que debe pasar
 
 ## Ejercicio 4:
 
+Una tienda online mínima. Siguiendo el apartado 4 del documento, el carrito es un dato complejo y esencial para que la tienda funcione, así que va en la sesión. Los últimos productos añadidos son texto simple y prescindible, así que van en una cookie.
+
+Crea estos ficheros, con la lógica arriba y el HTML debajo en cada página. Recuerda que session_start(), setcookie() y header() tienen que ejecutarse antes de enviar cualquier salida.
+
+catalogo.php (cópialo tal cual; las dos páginas lo incluyen con require_once):
+php
+```
+<?php
+$catalogo = [
+    1 => ["nombre" => "Camiseta", "precio" => 12],
+    2 => ["nombre" => "Taza", "precio" => 8],
+    3 => ["nombre" => "Libreta", "precio" => 5],
+    4 => ["nombre" => "Mochila", "precio" => 30],
+    5 => ["nombre" => "Gorra", "precio" => 10],
+    6 => ["nombre" => "Pegatinas", "precio" => 3]
+];
+```
+
+tienda.php. Las acciones van por enlaces con parámetros y, en todos los casos, la página redirige a tienda.php (header y exit) para que al recargar no se repita la acción.
+
+-Tabla con los productos: nombre, precio con el formato 12 € y un enlace Añadir a tienda.php?anadir=ID.
+
+-Sobre la tabla, Unidades en el carrito: N (0 si no hay carrito) y un enlace a carrito.php.
+
+-?anadir=ID: si ID es un id exacto del catálogo (abc, 0, 01, 1.5 o 99 no valen), suma una unidad al carrito y actualiza la cookie; si no, no hace nada.
+
+-La cookie ultimos guarda durante 7 días los ids de los 3 últimos productos distintos añadidos, el más reciente primero y separados por comas. Si añades 1, 2, 1, 3 y 4 por este orden, acaba valiendo 4,3,1. En las DevTools la verás como 4%2C3%2C1, porque PHP codifica la coma.
+
+-Bajo la tabla, si hay recientes, Añadidos recientemente: Mochila, Libreta, Camiseta (nombres, en el mismo orden) y un enlace Olvidar a tienda.php?olvidar=1, que borra la cookie.
+
+-Las cookies las controla el usuario: ignora cualquier valor de ultimos que no sea un id del catálogo, tanto al mostrarla como al actualizarla.
+
+carrito.php:
+
+-Sin carrito: El carrito está vacío y un enlace Seguir comprando a la tienda, sin tabla.
+
+-Con carrito: una tabla con producto, precio, cantidad y subtotal de cada línea, con un enlace Quitar uno (carrito.php?quitar=ID). Debajo, Total: 67 € y los enlaces Vaciar carrito (?vaciar=1), Finalizar compra (?finalizar=1) y Seguir comprando.
+
+-quitar: resta una unidad y, si llega a 0, quita el producto; si ID no está en el carrito, no hace nada. Después redirige a carrito.php.
+
+-vaciar: elimina el carrito de la sesión y redirige a carrito.php.
+
+-finalizar: con el carrito vacío, redirige a carrito.php. Si no, muestra Compra realizada y Has comprado N unidades por T €, y cierra la sesión: borra a mano sus variables y después session_destroy(). Calcula N y T antes de destruirla.
+
+Pruebas que debe pasar
+
+-Añade los productos 1, 2, 1, 3 y 4: Unidades en el carrito: 5, la cookie ultimos vale 4,3,1, Añadidos recientemente: Mochila, Libreta, Camiseta y el carrito suma Total: 67 €.
+
+-Borra la cookie PHPSESSID en las DevTools (Application → Cookies): el carrito se vacía, pero ultimos sigue.
+
+-Cambia ultimos por 9,abc,2 en las DevTools: la tienda solo muestra Taza y no se rompe.
+
+-tienda.php?anadir=99, ?anadir=abc y ?anadir=01 no cambian nada.
+
+-Con 2 camisetas y una mochila, Finalizar compra muestra Has comprado 3 unidades por 54 €; después, el carrito está vacío y ultimos sigue ahí.
+
 ## Ejercicio 5:
